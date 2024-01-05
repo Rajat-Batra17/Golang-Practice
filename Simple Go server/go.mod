@@ -1,0 +1,3 @@
+module SIMPLE-GO-SERVER
+
+go 1.21.5
