@@ -20,11 +20,11 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
-	// err := r.ParseForm()
-	// if err != nil {
-	// 	fmt.Fprintf(w, "Parseform() error %v\n", err)
-	// 	return
-	// }
+	err := r.ParseForm()
+	if err != nil {
+		fmt.Fprintf(w, "Parseform() error %v\n", err)
+		return
+	}
 	fmt.Fprintf(w, "Welcome to Rajat's Form\n")
 	fmt.Fprintf(w, "POST request successfully made\n")
 
@@ -36,10 +36,10 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 
-	// server := http.FileServer(http.Dir("./static"))
-	// // server variable holds an HTTP handler that serves files from the "static" directory.
+	server := http.FileServer(http.Dir("./static"))
+	// server variable holds an HTTP handler that serves files from the "static" directory.
 
-	// http.Handle("/", server) // will route it to index.html in static folder
+	http.Handle("/", server) // will route it to index.html in static folder
 
 	/*
 		http.HandleFunc() : associates a function with a specific URL pattern,
